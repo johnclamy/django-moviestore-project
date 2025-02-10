@@ -1,9 +1,19 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <title>About Us page</title>
-    </head>
-    <body>
-        <h1>About us</h1>
-    </body>
-</html>
+{% extends "base.html" %}
+{% block content %}
+{% load static %}
+<main class="p-3">
+    <div class="container">
+        <div class="row mt-3">
+            <section class="col-md-6 mx-auto mb-3">
+                <h1 class="h2 capitalize">about us</h1>
+                <hr />
+                <p>At M Store, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+                <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+            </section>
+            <section class="col-md-6 mx-auto mb-3 text-center">
+                <img src="{% static 'img/about.jpg' %}" class="max-width-100" alt="family enjoying watching a movie on a tv screen" />
+            </section>
+        </div>
+    </div>
+</main>
+{% endblock content %}
