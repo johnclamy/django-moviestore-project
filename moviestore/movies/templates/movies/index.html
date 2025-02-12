@@ -9,14 +9,16 @@
             <section class="col mb-5">
                 <div class="card h-100">
                     <!-- Product image-->
-                    <img class="card-img-top" src="https://dummyimage.com/450x300/dee2e6/6c757d.jpg" alt="..." />
+                    <a href={% url 'movies.show' id=movie.id %}>
+                        <img class="card-img-top" src="https://dummyimage.com/450x300/dee2e6/6c757d.jpg" alt="..." />
+                    </a>
                     <!-- Product details-->
                     <div class="card-body p-4">
                         <div class="text-center">
                             <!-- Product name-->
-                            <h5 class="fw-bolder">{{ movie.name }}</h5>
+                            <h5 class="fw-bolder"><a class="text-dark text-decoration-none" href={% url 'movies.show' id=movie.id %}>{{ movie.name }}</a></h5>
                             <!-- Product price-->
-                            £{{ movie.price}}.00
+                            <span class="badge bg-warning text-dark border border-2 border-dark rounded-pill">£{{ movie.price}}.00</span>
                         </div>
                     </div>
                     <!-- Product actions-->
