@@ -10,7 +10,7 @@
                 <div class="card h-100">
                     <!-- Product image-->
                     <a href={% url 'movies.show' id=movie.id %}>
-                        <img class="card-img-top" src="https://dummyimage.com/450x300/dee2e6/6c757d.jpg" alt="..." />
+                        <img class="card-img-top" style="max-height: 100%" src="{{ movie.image.url }}" alt="{{ movie.name }}" />
                     </a>
                     <!-- Product details-->
                     <div class="card-body p-4">
