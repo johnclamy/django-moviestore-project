@@ -1,34 +1,50 @@
 {% extends "base.html" %}
 {% block content %}
 {% load static %}
-<main class="py-5">
-    <div class="container px-4 px-lg-5 mt-5">
-        <article class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
-            <!-- Section for each movie card article -->
-            {% for movie in template_data.movies %}
-            <section class="col mb-5">
-                <div class="card h-100">
-                    <!-- Product image-->
-                    <a href={% url 'movies.show' id=movie.id %}>
-                        <img class="card-img-top" style="max-height: 100%" src="{{ movie.image.url }}" alt="{{ movie.name }}" />
-                    </a>
-                    <!-- Product details-->
-                    <div class="card-body p-4">
-                        <div class="text-center">
-                            <!-- Product name-->
-                            <h5 class="fw-bolder"><a class="text-dark text-decoration-none" href={% url 'movies.show' id=movie.id %}>{{ movie.name }}</a></h5>
-                            <!-- Product price-->
-                            <span class="badge bg-warning text-dark border border-2 border-dark rounded-pill">£{{ movie.price}}.00</span>
+<div class="mt-5">
+    <section class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <form class="d-flex">
+                    <div class="input-group">
+                        <input class="form-control form-control-lg" type="search" placeholder="Search" aria-label="Search">
+                        <button class="btn btn-dark px-4" type="submit">
+                            <i class="fa-solid fa-magnifying-glass" style="color: #ffffff;"></i>
+                            </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+    <main class="py-2">
+        <div class="container px-4 px-lg-5 mt-5">
+            <article class="row gx-4 gx-lg-5 row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
+                <!-- Section for each movie card article -->
+                {% for movie in template_data.movies %}
+                <section class="col mb-5">
+                    <div class="card h-100">
+                        <!-- Product image-->
+                        <a href={% url 'movies.show' id=movie.id %}>
+                            <img class="card-img-top" width="450px" height="300px" src="{{ movie.image.url }}" alt="{{ movie.name }}" />
+                        </a>
+                        <!-- Product details-->
+                        <div class="card-body p-4">
+                            <div class="text-center">
+                                <!-- Product name-->
+                                <h5 class="fw-bolder"><a class="text-dark text-decoration-none" href={% url 'movies.show' id=movie.id %}>{{ movie.name }}</a></h5>
+                                <!-- Product price-->
+                                <span class="badge bg-warning text-dark border border-2 border-dark rounded-pill">£{{ movie.price}}.00</span>
+                            </div>
+                        </div>
+                        <!-- Product actions-->
+                        <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                            <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">Add to cart</a></div>
                         </div>
                     </div>
-                    <!-- Product actions-->
-                    <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                        <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">Add to cart</a></div>
-                    </div>
-                </div>
-            </section>
-            {% endfor %}
-        </article>
-    </div>
-</main>
+                </section>
+                {% endfor %}
+            </article>
+        </div>
+    </main>
+</div>
 {% endblock content %}
