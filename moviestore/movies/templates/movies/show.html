@@ -4,7 +4,7 @@
 <!-- Product section-->
 <main class="py-5">
     <div class="container px-4 px-lg-5 my-5">
-        <div class="row gx-4 gx-lg-5 align-items-center">
+        <section class="row gx-4 gx-lg-5 align-items-center">
             <div class="col-md-6"><img class="card-img-top mb-5 mb-md-0" src="{{ template_data.movie.image.url }}" alt="{{ template_data.movie.name }}" /></div>
             <div class="col-md-6">
                 <h1 class="display-5 fw-bolder">{{ template_data.movie.name }}</h1>
@@ -20,7 +20,30 @@
                     </button>
                 </div>
             </div>
-        </div>
+        </section>
+        {% if user.is_authenticated %}
+        <section class="mt-4 row justify-content-center">
+            <div class="col-12">
+                <div class="card shadow p-3 mb-4 rounded">
+                    <div class="card-body">
+                        <b class="text-start">Create a review</b><br /><br />
+                        <form method="POST" action="{% url 'movies.create_review' id=template_data.movie.id %}">
+                            {% csrf_token %}
+                            <p>
+                                <label for="comment">Comment:</label>
+                                <textarea name="comment" required class="form-control" id="comment"></textarea>
+                            </p>
+                            <div class="text-center">
+                                <button type="submit" class="btn bg-dark text-white">
+                                    Add Review
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+        {% endif %}
     </div>
 </main>
 {% endblock content %}
